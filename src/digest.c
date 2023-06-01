@@ -13,6 +13,9 @@
 #endif
 
 #if defined(USE_DIGEST_OPENSSL)
+/* TODO: fix */
+#define OPENSSL_NO_RMD160
+
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
 #include <openssl/sha.h>
@@ -75,7 +78,7 @@ static void lib_hmac_update(mrb_state *, struct mrb_hmac *, unsigned char *, mrb
 
 #define HAVE_MD5
 
-#ifndef OPENSSL_NO_RIPEMD
+#ifndef OPENSSL_NO_RMD160
 #define HAVE_RMD160
 #endif
 
